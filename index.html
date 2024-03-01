@@ -26,7 +26,9 @@
             display: block;
             margin-bottom: 5px;
         }
-        input[type="text"] {
+        input[type="text"],
+        input[type="email"],
+        textarea {
             width: calc(100% - 12px);
             padding: 5px;
             margin-bottom: 10px;
@@ -55,6 +57,10 @@
             <input type="hidden" name="oid" value="00D7a000000Abuv">
             <input type="hidden" name="retURL" value="http:">
 
+            <!--  These fields are optional debugging elements. Uncomment if needed. -->
+            <!-- <input type="hidden" name="debug" value="1"> -->
+            <!-- <input type="hidden" name="debugEmail" value="force@loba.pt"> -->
+
             <label for="first_name">First Name</label>
             <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required><br>
 
@@ -62,18 +68,15 @@
             <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required><br>
 
             <label for="email">Email</label>
-            <input id="email" maxlength="80" name="email" size="20" type="text" required><br>
+            <input id="email" maxlength="80" name="email" size="20" type="email" required><br>
 
             <label for="company">Company</label>
             <input id="company" maxlength="40" name="company" size="20" type="text" required><br>
 
-            <label for="city">City</label>
-            <input id="city" maxlength="40" name="city" size="20" type="text"><br>
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea><br>
 
-            <label for="state">State/Province</label>
-            <input id="state" maxlength="20" name="state" size="20" type="text"><br>
-
-            <input type="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit">
         </form>
     </div>
 </body>
