@@ -1,0 +1,42 @@
+/**
+ * @description       : Auto convert lead when created.
+ * @author            :   andreluna@loba.com
+ * @group             : 
+ * @last modified on  : 03-13-2024
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
+public with sharing class LeadAutoConvert {
+    @InvocableMethod
+
+    public static void assignLeads(List<Id> LeadIds){
+
+
+        LeadStatus cLeadStatus=[Select Id,MasterLabel from LeadStatus where isConverted=true limit 1];
+
+        List<Database.LeadConvert> massLeadConvert=new List<Database.LeadConvert>();
+
+        for(Id currentLead:LeadIds){
+
+            Database.LeadConvert LeadConvert=new Database.LeadConvert();
+
+            LeadConvert.setLeadId(currentLead);
+
+            LeadConvert.setConvertedStatus(cLeadStatus.MasterLabel);
+
+            LeadConvert.setDoNotCreateOpportunity(true);
+
+            massLeadConvert.add(LeadConvert);
+
+        }
+
+        if(!massLeadConvert.isEmpty()){
+
+            List<Database.LeadConvertResult> lcr=Database.convertLead(massLeadConvert);
+
+            system.debug('lcr:: '+lcr);
+
+        }
+
+    }
+
+}

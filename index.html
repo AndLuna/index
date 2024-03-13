@@ -1,80 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Web-to-Lead Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: calc(100% - 12px);
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D7a000000Abuv" method="POST">
-            <input type="hidden" name="oid" value="00D7a000000Abuv">
-            <input type="hidden" name="retURL" value="http:">
-            <input id="lead_source" name="lead_source" type="hidden" value="Website">
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 
-            <label for="last_name">Name</label>
-            <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required><br>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 
-            <label for="email">Email</label>
-            <input id="email" maxlength="80" name="email" size="20" type="email" required><br>
-
-            <label for="company">Company</label>
-            <input id="company" maxlength="40" name="company" size="20" type="text" required><br>
-
-            <label for="phone">Phone</label>
-            <input id="phone" maxlength="40" name="phone" size="20" type="text" required><br>
-
-            <label for="description">Message</label>
-            <textarea id="description" name="description" required></textarea><br>
-
-            <input type="submit" name="submit" value="Submit">
-        </form>
-    </div>
-</body>
-</html>
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: Please add the following <FORM> element to your page.             -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D7a000000Abuv" method="POST">
+    
+    <input type=hidden name="oid" value="00D7a000000Abuv">
+    <input type=hidden name="retURL" value="http://">
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+    <!--  these lines if you wish to test in debug mode.                          -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail" value="force@loba.pt">           -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+    
+    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    
+    <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+    
+    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    
+    Country Code:<input  id="00N7a00000QiC3U" name="00N7a00000QiC3U" size="20" type="text" /><br>
+    
+    <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    
+    Comments:<textarea  id="00N7a00000QiC3V" name="00N7a00000QiC3V" type="text" wrap="soft"></textarea><br>
+    
+    <label for="lead_source">Lead Source</label><select  id="lead_source" name="lead_source"><option value="">--None--</option><option value="Advertisement">Advertisement</option>
+    <option value="Customer Event">Customer Event</option>
+    <option value="Employee Referral">Employee Referral</option>
+    <option value="External Referral">External Referral</option>
+    <option value="Google AdWords">Google AdWords</option>
+    <option value="Other">Other</option>
+    <option value="Partner">Partner</option>
+    <option value="Purchased List">Purchased List</option>
+    <option value="Trade Show">Trade Show</option>
+    <option value="Webinar">Webinar</option>
+    <option value="Website">Website</option>
+    </select><br>
+    
+    <input type="submit" name="submit">
+    
+    </form>
+    
